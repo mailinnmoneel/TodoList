@@ -1,8 +1,8 @@
     // Model
     var tasks = [
-        { person: 'Sarah', description: 'Handle til middag', time: {}, isDone: true },
+        { person: 'Sarah', description: 'Gjøre lekser', frist:'2d20t15m', isDone: true },
         { person: 'Hanne', description: 'Lage middag', frist: '2d20t15m', isDone: false },
-        { person: 'Peter', description: 'Spise middag', frist:'', isDone: false },
+        { person: 'Peter', description: 'Rydde rommet', frist:'2d20t15m', isDone: false },
     ];
 
 

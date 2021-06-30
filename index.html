@@ -17,7 +17,7 @@
     <div id ="bottomDiv">
         <input id="personDescription" type="text"/> <input id="taskDescription" type="text"/>
     <button onclick="addTask()">Legg til oppgave</button>
-    <input type="date"/>
+    <input id="datoInput" type="date"/> 
     </div>
 </div>
 <script>
@@ -51,8 +51,10 @@ function show() {
             <tr>
             <th>Person</th>    
             <th>Oppgave</th>
-            <th>Status</th>
             <th></th>
+            <th></th>
+            <th>Frist</th>
+            <th>Gjort dato</th>
             </tr>`;
         for (let i = 0; i < tasks.length; i++) 
         {
@@ -75,6 +77,8 @@ function createHtmlRow(i)
                 <td>
                 <button onclick="deleteTask(${i})">Slett</button>
                 <button onclick="editTask(${i})">Rediger</button>
+                <td></td>
+                <td></td>
                 </td>
             </tr>
      `;
@@ -85,6 +89,8 @@ function createHtmlRow(i)
                 <td>
                 <button onclick="updateTask(${i})">Lagre</button>               
                 </td>
+                <td></td>
+                <td></td>
                 </tr>
                            
     `;
@@ -129,18 +135,6 @@ function updateTask(index)
 
     show();
 }
-
-//Denne bør/kan helst slå sammen med funksjonen over
-// function updatePerson(index) 
-// {
-//     const id = `editPerson${index}`;
-//     const inputTag = document.getElementById(id);
-//     const task = tasks[index];
-//     task.person = inputTag.value; 
-//     task.editMode = false;
-//     show();
-// }
-
 
 </script>
 </body>
