@@ -15,7 +15,7 @@
         <table id="tasksTable"></table>
 
     <div id ="bottomDiv">
-    <input id="taskDescription" type="text"/><input id="personDescription" type="text"/> 
+        <input id="personDescription" type="text"/> <input id="taskDescription" type="text"/>
     <button onclick="addTask()">Legg til oppgave</button>
     <input type="date"/>
     </div>
@@ -31,7 +31,7 @@ var taskDescriptionInput = document.getElementById('taskDescription');
             description: taskDescriptionInput.value,
             isDone: false
         });
-        taskDescriptionInput.value = '';
+        taskDescriptionInput.value = 'Oppgave';
         show();
     }
     
@@ -40,11 +40,11 @@ var personDescriptionInput = document.getElementById('personDescription');
     personDescriptionInput.value = 'Navn';
 
     function addPerson() {
-        person.push({
+        tasks.push({
             description: personDescriptionInput.value,
             isDone: false
         });
-        personDescriptionInput.value = '';
+        personDescriptionInput.value = 'Navn';
         show();
     }
         
@@ -89,7 +89,8 @@ function createHtmlRow(i)
                 <td><input id="editDescription${i}" type="text" value="${task.description}"/></td>
                 <td><input onchange="changeIsDone(this, ${i})" type="checkbox" ${checkedHtml} /></td>
                 <td>
-                <button onclick="updateTask(${i})">Lagre</button>
+                <button onclick="updateTask(${i})">Lagre oppgave</button>
+                <button onclick="updatePerson(${i})">Lagre person</button>
                 </td>
                 </tr>
                            
@@ -114,6 +115,7 @@ function editTask(index)
     show();
 }
     
+
 function updateTask(index) 
 {
     const id = `editDescription${index}`;
