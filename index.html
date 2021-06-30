@@ -22,31 +22,25 @@
 </div>
 <script>
     
+
+
 // Controller
 var taskDescriptionInput = document.getElementById('taskDescription');
-    taskDescriptionInput.value = 'Oppgave';
-
-    function addTask() {
-        tasks.push({
-            description: taskDescriptionInput.value,
-            isDone: false
-        });
-        taskDescriptionInput.value = 'Oppgave';
-        show();
-    }
-    
-
+    taskDescriptionInput.setAttribute('Placeholder','Oppgave');
 var personDescriptionInput = document.getElementById('personDescription');
-    personDescriptionInput.value = 'Navn';
+    personDescriptionInput.setAttribute('Placeholder','Navn');
 
-    function addPerson() {
-        tasks.push({
-            description: personDescriptionInput.value,
-            isDone: false
-        });
-        personDescriptionInput.value = 'Navn';
-        show();
-    }
+function addTask() {
+    tasks.push({
+        person: personDescriptionInput.value,
+        description: taskDescriptionInput.value,
+        isDone: false
+    });
+    taskDescriptionInput.value = '';
+    personDescriptionInput.value = '';
+
+    show();
+}
         
 // View
 var tasksTable = document.getElementById('tasksTable');
@@ -89,8 +83,7 @@ function createHtmlRow(i)
                 <td><input id="editDescription${i}" type="text" value="${task.description}"/></td>
                 <td><input onchange="changeIsDone(this, ${i})" type="checkbox" ${checkedHtml} /></td>
                 <td>
-                <button onclick="updateTask(${i})">Lagre oppgave</button>
-                <button onclick="updatePerson(${i})">Lagre person</button>
+                <button onclick="updateTask(${i})">Lagre</button>               
                 </td>
                 </tr>
                            
@@ -118,23 +111,35 @@ function editTask(index)
 
 function updateTask(index) 
 {
-    const id = `editDescription${index}`;
-    const inputTag = document.getElementById(id);
+    // Hente ut ID fra hver av input-boksene
+    let idPers = `editPerson${index}`;
+    let idDesc = `editDescription${index}`;
+    var inputTag = document.getElementById(idPers);
+    var inputTag2 = document.getElementById(idDesc);
+
+    // hente ut referanse til object på den indexen vi er på
     const task = tasks[index];
-    task.description = inputTag.value;
+
+    // Sette relevante verdier på objektet
+    task.person = inputTag.value; 
+    task.description = inputTag2.value;
+    
+    // Avslutte redigerings-modus
     task.editMode = false;
+
     show();
 }
 
-function updatePerson(index) 
-{
-    const id = `editPerson${index}`;
-    const inputTag = document.getElementById(id);
-    const task = tasks[index];
-    task.person = inputTag.value; 
-    task.editMode = false;
-    show();
-}
+//Denne bør/kan helst slå sammen med funksjonen over
+// function updatePerson(index) 
+// {
+//     const id = `editPerson${index}`;
+//     const inputTag = document.getElementById(id);
+//     const task = tasks[index];
+//     task.person = inputTag.value; 
+//     task.editMode = false;
+//     show();
+// }
 
 
 </script>
