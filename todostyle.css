@@ -7,6 +7,7 @@
 table, tr, td, th {
     border: 3px solid black;
     border-collapse: collapse;
+    width: 700px;
 }
 
 td, th {
@@ -33,6 +34,15 @@ button {
 
 #bottomDiv {
     padding: 5px; 
+}
+
+#taskDescription, #personDescription {
+    text-align: center;
+    background-color: #092834;
+    color: white;
+    border: 1px white;
+    padding: 3px;
+    margin: 2px;
 }
 
 ::-webkit-datetime-edit { padding: 1em; }

@@ -4,3 +4,5 @@
         { person: 'Hanne', description: 'Lage middag', isDone: false },
         { person: 'Peter', description: 'Spise middag', isDone: false },
     ];
+
+    var taskDescription = 'Oppgave';
