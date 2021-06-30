@@ -1,0 +1,13 @@
+*********************Oppgaver*************************************************************
+
+    
+    Legg til person. Må kunne angis når man lager ny oppgave og må kunne redigeres
+    
+    Legg til kolonne for frist. Bruk input-tag med type="date".
+    Konvertering til visningsformat: <tt>new Date("2019-02-13").toLocaleDateString()</tt>
+    
+    Lag kolonne for "gjort dato" som fylles ut automatisk når man 
+    trykker på checkboxen for at det er gjort.
+
+******************************************************************************************
+

@@ -1,0 +1,45 @@
+#parent {
+    display: grid;
+    place-items: center;
+    font-size: 30px;
+}
+
+table, tr, td, th {
+    border: 3px solid black;
+    border-collapse: collapse;
+}
+
+td, th {
+    padding: 10px;
+}
+
+th {
+    background-color: #092834;
+    border: 3px solid #092834;
+    color: white;
+}
+
+tr:nth-child(even) {
+    background: #347B98;
+}
+
+button {
+    font-size: 20px;
+    color: white;
+    background-color: #092834;
+    padding: 2px;
+    margin: 5px; 
+}
+
+#bottomDiv {
+    padding: 5px; 
+}
+
+::-webkit-datetime-edit { padding: 1em; }
+/* ::-webkit-datetime-edit-fields-wrapper { background: silver; } */
+::-webkit-datetime-edit-text { color: #092834; padding: 0 0.3em; }
+::-webkit-datetime-edit-month-field { color: #092834; }
+::-webkit-datetime-edit-day-field { color: #092834; }
+::-webkit-datetime-edit-year-field { color: #092834; }
+::-webkit-inner-spin-button { display: none; }
+::-webkit-calendar-picker-indicator { background: #092834; }
