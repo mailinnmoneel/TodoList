@@ -1,15 +1,18 @@
     // Model
-    var tasks = [
-        { person: 'Sarah', description: 'Gjøre lekser', frist:'2d20t15m', isDone: true },
-        { person: 'Hanne', description: 'Lage middag', frist: '2d20t15m', isDone: false },
-        { person: 'Peter', description: 'Rydde rommet', frist:'2d20t15m', isDone: false },
+    let tasks = [
+        { person: 'Sarah', description: 'Gjøre lekser', d: new Date().toLocaleDateString(), isDone: false },
+        { person: 'Hanne', description: 'Lage middag',  d: new Date().toLocaleDateString(), isDone: false },
+        { person: 'Peter', description: 'Rydde rommet', d: new Date().toLocaleDateString(), isDone: false },
     ];
 
 
-    // tasks[0].time.month = 12;
+    console.table(tasks);
     
-    // let  time = [ {
-    //     month: 2,
-    //     days: 16, 
-    
-    // }]
+
+    // d = new Date().toLocaleDateString();
+
+    // d = new Date("2019-02-13").toLocaleDateString();
+
+    // let dateIn = document.getElementById('datoInput');
+    // let dateOut = document.getElementById('editDate');
+
