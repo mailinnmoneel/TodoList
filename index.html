@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="todostyle.css">
     <title>ToDo</title>
     <script src="model.js"></script>
-    <script src="controller.js"></script>
+    
 </head>
 <body>    
 <div id="parent">
@@ -16,35 +16,79 @@
 
     <div id ="bottomDiv">
         <input id="personDescription" type="text"/> <input id="taskDescription" type="text"/>
-        <input id="datoInput" type="date" new Date()>
+        <input id="datoInput" type="date" >
     <button onclick="addTask()">Legg til oppgave</button>
     </div>
 </div>
 <script>
-    
+   
 
 
 // Controller
-var taskDescriptionInput = document.getElementById('taskDescription');
+let taskDescriptionInput = document.getElementById('taskDescription');
     taskDescriptionInput.setAttribute('Placeholder','Oppgave');
-var personDescriptionInput = document.getElementById('personDescription');
+let personDescriptionInput = document.getElementById('personDescription');
     personDescriptionInput.setAttribute('Placeholder','Navn');
-
-let datoDescriptionInput = document.getElementById('datoInput');     
-
+  
 function addTask() {
     tasks.push({
         person: personDescriptionInput.value,
         description: taskDescriptionInput.value,
-        // frist : datoDescriptionInput.value;      
+        d: document.getElementById("datoInput").value = new Date().toLocaleDateString(),
+
         isDone: false
     });
     taskDescriptionInput.value = '';
     personDescriptionInput.value = '';
-
     show();
 }
         
+
+function changeIsDone(checkbox, index) 
+{
+    tasks[index].isDone = checkbox.checked;
+
+    show();
+} 
+
+function deleteTask(index) 
+{
+    tasks.splice(index, 1);
+    show();
+}
+    
+function editTask(index) 
+{
+    tasks[index].editMode = true;
+    show();
+}
+    
+
+function updateTask(index) 
+{
+    // Hente ut ID fra hver av input-boksene
+    let idPers = `editPerson${index}`;
+    let idDesc = `editDescription${index}`;
+    let idDato = `editDate${index}`;
+    let datoInput = document.getElementById(idDato);
+
+    let inputTag = document.getElementById(idPers);
+    let inputTag2 = document.getElementById(idDesc);
+
+    // hente ut referanse til objekt på den indexen vi er på
+    const task = tasks[index];
+
+    // Sette relevante verdier på objektet
+    task.person = inputTag.value; 
+    task.description = inputTag2.value;
+    task.d = datoInput.value; //Verdi for dato
+    
+    // Avslutte redigerings-modus
+    task.editMode = false;
+
+    show();
+}
+
 // View
 var tasksTable = document.getElementById('tasksTable');
 show();
@@ -81,7 +125,7 @@ function createHtmlRow(i)
                 <button onclick="deleteTask(${i})">Slett</button>
                 <button onclick="editTask(${i})">Rediger</button>
                 <td><tt><div id="dueDate${i}"></div>${task.d}</tt></td>
-                <td><tt> <div id="gjortDato"></div> </tt></td>
+                <td><tt> <div id="gjortDato${i}"></div> </tt></td>
                 </td>
             </tr>
      `;
@@ -97,53 +141,6 @@ function createHtmlRow(i)
                 </tr>
                            
     `;
-}
-
-function changeIsDone(checkbox, index) 
-{
-    tasks[index].isDone = checkbox.checked;
-    
-    show();
-} 
-
-function deleteTask(index) 
-{
-    tasks.splice(index, 1);
-    show();
-}
-    
-function editTask(index) 
-{
-    tasks[index].editMode = true;
-    show();
-}
-    
-
-function updateTask(index) 
-{
-    // Hente ut ID fra hver av input-boksene
-    let idPers = `editPerson${index}`;
-    let idDesc = `editDescription${index}`;
-
-    let idDato = `editDate${index}`;
-
-    let datoInput = document.getElementById(idDato);
-
-    let inputTag = document.getElementById(idPers);
-    let inputTag2 = document.getElementById(idDesc);
-
-    // hente ut referanse til objekt på den indexen vi er på
-    const task = tasks[index];
-
-    // Sette relevante verdier på objektet
-    task.person = inputTag.value; 
-    task.description = inputTag2.value;
-    task.d = datoInput.value; //Verdi for dato
-    
-    // Avslutte redigerings-modus
-    task.editMode = false;
-
-    show();
 }
 
 </script>
