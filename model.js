@@ -1,11 +1,14 @@
     // Model
-    let tasks = [
+    const model = {
+     tasks : [
         { person: 'Sarah', description: 'Gjøre lekser', d: new Date().toLocaleDateString(), isDone: false },
         { person: 'Hanne', description: 'Lage middag',  d: new Date().toLocaleDateString(), isDone: false },
         { person: 'Peter', description: 'Rydde rommet', d: new Date().toLocaleDateString(), isDone: false },
-    ];
+    ],
+    dateInput: null,
 
-    console.table(tasks);
+}
+   // console.table(tasks);
     
   
     // d = new Date().toLocaleDateString();

@@ -16,7 +16,7 @@
 
     <div id ="bottomDiv">
         <input id="personDescription" type="text"/> <input id="taskDescription" type="text"/>
-        <input id="datoInput" type="date" >
+        <input id="datoInput" type="date" onchange="model.dateInput = this.valueAsDate.toLocaleDateString()">  <!--Må endres?-->
     <button onclick="addTask()">Legg til oppgave</button>
     </div>
 </div>
@@ -29,12 +29,12 @@ let taskDescriptionInput = document.getElementById('taskDescription');
     taskDescriptionInput.setAttribute('Placeholder','Oppgave');
 let personDescriptionInput = document.getElementById('personDescription');
     personDescriptionInput.setAttribute('Placeholder','Navn');
-  
+  //document.getElementById("datoInput").value = new Date().toLocaleDateString(), //Må endres
 function addTask() {
-    tasks.push({
+    model.tasks.push({
         person: personDescriptionInput.value,
         description: taskDescriptionInput.value,
-        d: document.getElementById("datoInput").value = new Date().toLocaleDateString(),
+        d: model.dateInput,
 
         isDone: false
     });
@@ -103,7 +103,7 @@ function show() {
             <th>Frist</th>
             <th>Gjort dato</th>
             </tr>`;
-        for (let i = 0; i < tasks.length; i++) 
+        for (let i = 0; i < model.tasks.length; i++) 
         {
             html += createHtmlRow(i);
         }
@@ -112,8 +112,8 @@ function show() {
     
 function createHtmlRow(i) 
 {
-    const person = tasks[i]; 
-    const task = tasks[i];
+    const person = model.tasks[i]; 
+    const task = model.tasks[i];
     const checkedHtml = task.isDone ? 'checked="checked"' : '';
         if (!task.editMode)
             return `
