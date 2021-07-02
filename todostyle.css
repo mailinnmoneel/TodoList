@@ -1,22 +1,17 @@
-#parent {
-    display: grid;
-    place-items: center;
-    font-size: 30px;
-}
-
 table, tr, td, th {
-    border: 3px solid black;
+    border: 2px solid black;
     border-collapse: collapse;
-    width: 700px;
+    width: 900px;
+    text-align: center;
 }
 
 td, th {
-    padding: 10px;
+    /* padding: 10px; */
 }
 
 th {
     background-color: #092834;
-    border: 3px solid #092834;
+    border: 2px solid #092834;
     color: white;
 }
 
@@ -25,24 +20,21 @@ tr:nth-child(even) {
 }
 
 button {
-    font-size: 20px;
+    font-size: 15px;
     color: white;
-    background-color: #092834;
+    background-color: #34092e;
     padding: 2px;
-    margin: 5px; 
-}
-
-#bottomDiv {
-    padding: 5px; 
+    /* margin: 5px;  */
 }
 
 #taskDescription, #personDescription {
     text-align: center;
-    background-color: #092834;
-    color: white;
+    font-size: 15px;
+    /* background-color: #092834; */
+    /* color: white; */
     border: 1px white;
-    padding: 3px;
-    margin: 2px;
+    padding: 10px;
+    margin: 0px;
 }
 
 ::-webkit-datetime-edit { padding: 1em; }

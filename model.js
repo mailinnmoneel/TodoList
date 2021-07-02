@@ -1,20 +1,13 @@
     // Model
     const model = {
      tasks : [
-        { person: 'Sarah', description: 'Gjøre lekser', d: new Date().toLocaleDateString(), isDone: false },
-        { person: 'Hanne', description: 'Lage middag',  d: new Date().toLocaleDateString(), isDone: false },
-        { person: 'Peter', description: 'Rydde rommet', d: new Date().toLocaleDateString(), isDone: false },
+        // { person: '', description: '', d: '', isDone: false },
+        { person: 'Alexandra', description: 'Kjøpe hageplanter', d: new Date().toLocaleDateString(), isDone: true },
     ],
     dateInput: null,
 
 }
    // console.table(tasks);
-    
   
-    // d = new Date().toLocaleDateString();
-
-    // let = tasks[i].d = new Date("2019-02-13").toLocaleDateString();
-
-    // let dateIn = document.getElementById('datoInput');
-    // let dateOut = document.getElementById('editDate');
+  
 

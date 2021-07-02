@@ -5,145 +5,15 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="todostyle.css">
-    <title>ToDo</title>
+    <title>To Do</title>
     <script src="model.js"></script>
-    
+
 </head>
 <body>    
-<div id="parent">
-       
-        <table id="tasksTable"></table>
-
-    <div id ="bottomDiv">
-        <input id="personDescription" type="text"/> <input id="taskDescription" type="text"/>
-        <input id="datoInput" type="date" onchange="model.dateInput = this.valueAsDate.toLocaleDateString()">  <!--Må endres?-->
-    <button onclick="addTask()">Legg til oppgave</button>
-    </div>
-</div>
-<script>
-   
-
-
-// Controller
-let taskDescriptionInput = document.getElementById('taskDescription');
-    taskDescriptionInput.setAttribute('Placeholder','Oppgave');
-let personDescriptionInput = document.getElementById('personDescription');
-    personDescriptionInput.setAttribute('Placeholder','Navn');
-  //document.getElementById("datoInput").value = new Date().toLocaleDateString(), //Må endres
-function addTask() {
-    model.tasks.push({
-        person: personDescriptionInput.value,
-        description: taskDescriptionInput.value,
-        d: model.dateInput,
-
-        isDone: false
-    });
-    taskDescriptionInput.value = '';
-    personDescriptionInput.value = '';
-    show();
-}
-        
-
-function changeIsDone(checkbox, index) 
-{
-    tasks[index].isDone = checkbox.checked;
-
-    show();
-} 
-
-function deleteTask(index) 
-{
-    tasks.splice(index, 1);
-    show();
-}
+    <table id="tasksTable"></table>
+    <script src="view.js"></script>
+    <script src="controller.js"></script>
     
-function editTask(index) 
-{
-    tasks[index].editMode = true;
-    show();
-}
-    
-
-function updateTask(index) 
-{
-    // Hente ut ID fra hver av input-boksene
-    let idPers = `editPerson${index}`;
-    let idDesc = `editDescription${index}`;
-    let idDato = `editDate${index}`;
-    let datoInput = document.getElementById(idDato);
-
-    let inputTag = document.getElementById(idPers);
-    let inputTag2 = document.getElementById(idDesc);
-
-    // hente ut referanse til objekt på den indexen vi er på
-    const task = tasks[index];
-
-    // Sette relevante verdier på objektet
-    task.person = inputTag.value; 
-    task.description = inputTag2.value;
-    task.d = datoInput.value; //Verdi for dato
-    
-    // Avslutte redigerings-modus
-    task.editMode = false;
-
-    show();
-}
-
-// View
-var tasksTable = document.getElementById('tasksTable');
-show();
-    
-function show() {
-        let html = `
-            <tr>
-            <th>Person</th>    
-            <th>Oppgave</th>
-            <th></th>
-            <th></th>
-            <th>Frist</th>
-            <th>Gjort dato</th>
-            </tr>`;
-        for (let i = 0; i < model.tasks.length; i++) 
-        {
-            html += createHtmlRow(i);
-        }
-    tasksTable.innerHTML = html;
-}
-    
-function createHtmlRow(i) 
-{
-    const person = model.tasks[i]; 
-    const task = model.tasks[i];
-    const checkedHtml = task.isDone ? 'checked="checked"' : '';
-        if (!task.editMode)
-            return `
-            <tr>
-                <td>${task.person}</td>
-                <td>${task.description}</td>
-                <td><input onchange="changeIsDone(this, ${i})" type="checkbox" ${checkedHtml} /></td>
-                <td>
-                <button onclick="deleteTask(${i})">Slett</button>
-                <button onclick="editTask(${i})">Rediger</button>
-                <td><tt><div id="dueDate${i}"></div>${task.d}</tt></td>
-                <td><tt> <div id="gjortDato${i}"></div> </tt></td>
-                </td>
-            </tr>
-     `;
-            return `<tr>
-                <td><input id="editPerson${i}" type="text" value="${task.person}"/></td>
-                <td><input id="editDescription${i}" type="text" value="${task.description}"/></td>
-                <td><input onchange="changeIsDone(this, ${i})" type="checkbox" ${checkedHtml} /></td>
-                <td>
-                <button onclick="updateTask(${i})">Lagre</button>               
-                </td>
-                <td><tt><input id="editDate${i}" type="date"/></tt></td>
-                <td><tt> <div id="gjortDato"></div></tt></td>
-                </tr>
-                           
-    `;
-}
-
-</script>
 </body>
 </html>
 
