@@ -37,10 +37,12 @@ function updateTask(index)
     show();
 }
 
-function changeIsDone(checkbox, index) 
-{   
 
+function changeIsDone(checkbox, index) 
+{  
     model.tasks[index].isDone = checkbox.checked;
+
+   checkedHTML = new Date();
 
     show();
 } 

@@ -32,6 +32,7 @@ function createHtmlRow(i)
     const person = model.tasks[i]; 
     const task = model.tasks[i];
     const checkedHtml = task.isDone ? 'checked="checked"' : '';
+    const dateOutput = task.isDone ? new Date().toLocaleDateString() : '';
         if (!task.editMode)
             return `
             <tr>
@@ -42,19 +43,19 @@ function createHtmlRow(i)
                 <button onclick="deleteTask(${i})">Slett</button>
                 <button onclick="editTask(${i})">Endre</button>
                 <td><tt><div id="dueDate${i}"></div>${task.d}</tt></td>
-                <td><tt><div id="gjortDato(this, ${i})"></div>${model.dateOutput}</tt></td>
+                <td><tt> <div id=datoOutput"</div>${dateOutput}</tt></td>
                 </td>
             </tr>
      `;
             return `<tr>
                 <td><input id="editPerson${i}" type="text" value="${task.person}"/></td>
                 <td><input id="editDescription${i}" type="text" value="${task.description}"/></td>
-                <td><input onchange="changeIsDone(this, ${i})" type="checkbox" ${checkedHtml} /></td>
+                <td><input onchange="changeIsDone(this, ${i})" type="checkbox"${checkedHtml}/></td>
                 <td>
                 <button onclick="updateTask(${i})">Lagre</button>               
                 </td>
                 <td><tt><input id="editDate${i}" type="date"/></tt></td>
-                <td><tt><div id="gjortDato${i}"></div>${model.dateOutput}</tt></td>
+                <td><tt></tt>${dateOutput}</td>
                 </tr>        
     `;
 }
