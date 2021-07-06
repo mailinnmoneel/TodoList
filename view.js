@@ -2,7 +2,8 @@
 var tasksTable = document.getElementById('tasksTable');
 show();
 
-function show() {
+function show(i) 
+{       
         let html = `
         <tr>
             <th>Person</th>    
@@ -11,15 +12,16 @@ function show() {
             <th></th>
             <th>Frist</th>
             <th>Gjort dato</th>
-        </tr>
-            <th><input id="personDescription" type="text"/></th>
-            <th><input id="taskDescription" type="text"/></th>
-            <th></th>
-            <th><button onclick="addTask()">Legg til oppgave</button></th>
-            <th><input id="datoInput" type="date" onchange="model.dateInput = this.valueAsDate.toLocaleDateString().substr(0,10)"></th>
-            <th></th>        
+        </tr>       
+        
+        <th><input id="personDescription" type="text"/></th>
+        <th><input id="taskDescription" type="text"/></th>
+        <th></th>
+        <th><button onclick="addTask()">Legg til oppgave</button></th>
+        <th><input id="datoInput" type="date" onchange="model.dateInput = this.valueAsDate.toLocaleDateString().substr(0,10)"></th>
+        <th></th> 
         `
-            ;
+    ;
         for (let i = 0; i < model.tasks.length; i++) 
         {
             html += createHtmlRow(i);
@@ -46,6 +48,8 @@ function createHtmlRow(i)
                 <td><tt> <div id=datoOutput"</div>${dateOutput}</tt></td>
                 </td>
             </tr>
+
+
      `;
             return `<tr>
                 <td><input id="editPerson${i}" type="text" value="${task.person}"/></td>
@@ -56,6 +60,6 @@ function createHtmlRow(i)
                 </td>
                 <td><tt><input id="editDate${i}" type="date"/></tt></td>
                 <td><tt></tt>${dateOutput}</td>
-                </tr>        
+                </tr>  
     `;
 }

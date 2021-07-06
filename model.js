@@ -7,6 +7,7 @@
     dateOutput: null,
 
 }
+
    // console.table(tasks);
   
   
