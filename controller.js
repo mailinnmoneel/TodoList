@@ -1,5 +1,6 @@
 
 // Controller
+
 let taskDescriptionInput = document.getElementById('taskDescription')
 let personDescriptionInput = document.getElementById('personDescription');
 
@@ -9,12 +10,30 @@ function addTask() {
         description: taskDescriptionInput.value,
         d: model.dateInput,
 
+        
+
         isDone: false
     });
     taskDescriptionInput.value = '';
     personDescriptionInput.value = '';
     show();
 }
+
+// let taskDescriptionInput = document.getElementById('taskDescription')
+// let personDescriptionInput = document.getElementById('personDescription');
+
+// function addTask() {
+//     model.tasks.push({
+//         person: personDescriptionInput.value,
+//         description: taskDescriptionInput.value,
+//         d: model.dateInput,
+
+//         isDone: false
+//     });
+//     taskDescriptionInput.value = '';
+//     personDescriptionInput.value = '';
+//     show();
+// }
 
 function updateTask(index) 
 {
@@ -41,8 +60,6 @@ function updateTask(index)
 function changeIsDone(checkbox, index) 
 {  
     model.tasks[index].isDone = checkbox.checked;
-
-   checkedHTML = new Date();
 
     show();
 } 
