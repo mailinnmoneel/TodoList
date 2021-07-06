@@ -16,7 +16,7 @@ function show() {
             <th><input id="taskDescription" type="text"/></th>
             <th></th>
             <th><button onclick="addTask()">Legg til oppgave</button></th>
-            <th><input id="datoInput" type="date" onchange="model.dateInput = this.valueAsDate.toLocaleDateString()"></th>
+            <th><input id="datoInput" type="date" onchange="model.dateInput = this.valueAsDate.toLocaleDateString().substr(0,10)"></th>
             <th></th>        
         `
             ;
@@ -42,7 +42,7 @@ function createHtmlRow(i)
                 <button onclick="deleteTask(${i})">Slett</button>
                 <button onclick="editTask(${i})">Endre</button>
                 <td><tt><div id="dueDate${i}"></div>${task.d}</tt></td>
-                <td><tt> <div id="gjortDato${i}"></div> </tt></td>
+                <td><tt><div id="gjortDato(this, ${i})"></div>${model.dateOutput}</tt></td>
                 </td>
             </tr>
      `;
@@ -54,7 +54,7 @@ function createHtmlRow(i)
                 <button onclick="updateTask(${i})">Lagre</button>               
                 </td>
                 <td><tt><input id="editDate${i}" type="date"/></tt></td>
-                <td><tt> <div id="gjortDato"></div></tt></td>
+                <td><tt><div id="gjortDato${i}"></div>${model.dateOutput}</tt></td>
                 </tr>        
     `;
 }
