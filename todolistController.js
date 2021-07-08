@@ -19,7 +19,7 @@ function addTask() {
     });
     taskDescriptionInput.value = '';
     personDescriptionInput.value = '';
-    show();
+    updateView();
 }
 
 function updateTask(index) 
@@ -40,7 +40,7 @@ function updateTask(index)
     
     task.editMode = false;
 
-    show();
+    updateView();
 }
 
 
@@ -48,17 +48,17 @@ function changeIsDone(checkbox, index)
 {  
     model.tasks[index].isDone = checkbox.checked;
 
-    show();
+    updateView();
 } 
 
 function deleteTask(index) 
 {
     model.tasks.splice(index, 1);
-    show();
+    updateView();
 }
 
 function editTask(index) 
 {
     model.tasks[index].editMode = true;
-    show();
+    updateView();
 }

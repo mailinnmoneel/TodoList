@@ -6,8 +6,8 @@ table, tr, td, th {
 }
 
 td, th {
-    /* padding: 10px; */
-}
+    padding: 10px;
+/
 
 th {
     background-color: #092834;
@@ -24,21 +24,17 @@ button {
     color: white;
     background-color: #34092e;
     padding: 2px;
-    /* margin: 5px;  */
 }
-
+ 
 #taskDescription, #personDescription {
     text-align: center;
     font-size: 15px;
-    /* background-color: #092834; */
-    /* color: white; */
     border: 1px white;
     padding: 10px;
     margin: 0px;
-}
+} 
 
 ::-webkit-datetime-edit { padding: 1em; }
-/* ::-webkit-datetime-edit-fields-wrapper { background: silver; } */
 ::-webkit-datetime-edit-text { color: #092834; padding: 0 0.3em; }
 ::-webkit-datetime-edit-month-field { color: #092834; }
 ::-webkit-datetime-edit-day-field { color: #092834; }

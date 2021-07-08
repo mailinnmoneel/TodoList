@@ -1,16 +1,6 @@
 // View
 var tasksTable = document.getElementById('app');
 
-// function updateViewTodolist()
-// {
-//     document.getElementById('app').innerHTML = `
-//         <button onclick="gotoToDoListPage()">Go to your list</button>
-//         <hr/>
-//         <h1>This is the add task page</h1>
-    
-//     `;
-// }
-
 updateViewTodolist();
 
 function updateViewTodolist(i) 
@@ -28,12 +18,7 @@ function updateViewTodolist(i)
             <th>Gjort dato</th>
         </tr>       
         
-        <th><input id="personDescription" type="text"/></th>
-        <th><input id="taskDescription" type="text"/></th>
-        <th></th>
-        <th><button onclick="addTask()">Legg til oppgave</button></th>
-        <th><input id="datoInput" type="date" onchange="model.dateInput = this.valueAsDate.toLocaleDateString().substr(0,10)"></th>
-        <th></th> 
+     
         `
     ;
         for (let i = 0; i < model.tasks.length; i++) 
