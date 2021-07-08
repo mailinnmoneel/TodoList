@@ -5,6 +5,8 @@
     ],
     dateInput: new Date().toLocaleDateString(),
     dateOutput: null,
+        app: { currentpage: 'todolist',
+        },
 
 }
 

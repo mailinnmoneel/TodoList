@@ -1,5 +1,10 @@
 
 // Controller
+function gotoAddTaskPage()
+{
+    model.app.currentpage = 'addTask';
+    updateView();
+}
 
 let taskDescriptionInput = document.getElementById('taskDescription')
 let personDescriptionInput = document.getElementById('personDescription');
@@ -16,9 +21,6 @@ function addTask() {
     personDescriptionInput.value = '';
     show();
 }
-
-
-
 
 function updateTask(index) 
 {

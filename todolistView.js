@@ -1,10 +1,24 @@
 // View
-var tasksTable = document.getElementById('tasksTable');
-show();
+var tasksTable = document.getElementById('app');
 
-function show(i) 
+// function updateViewTodolist()
+// {
+//     document.getElementById('app').innerHTML = `
+//         <button onclick="gotoToDoListPage()">Go to your list</button>
+//         <hr/>
+//         <h1>This is the add task page</h1>
+    
+//     `;
+// }
+
+updateViewTodolist();
+
+function updateViewTodolist(i) 
 {       
         let html = `
+
+        <button onclick="gotoAddTaskPage()">Go to Add Task Page</button>
+
         <tr>
             <th>Person</th>    
             <th>Oppgave</th>

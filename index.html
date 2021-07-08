@@ -10,9 +10,24 @@
 
 </head>
 <body>    
-    <table id="tasksTable"></table>
-    <script src="view.js"></script>
-    <script src="controller.js"></script>
+    <table id="app"></table>
+
+    <script src="todolistView.js"></script>
+    <script src="addtaskView.js"></script>
+    
+    <script src="todolistController.js"></script>
+    <script src="addtaskController.js"></script>
+
+    <script>
+        updateView();
+
+        function updateView()
+        {
+            if(model.app.currentpage == 'todolist') updateViewTodolist();
+            if(model.app.currentpage == 'addTask') updateViewaddTask();
+        }
+
+    </script>
     
 </body>
 </html>
