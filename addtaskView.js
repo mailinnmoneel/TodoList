@@ -2,15 +2,19 @@ function updateViewaddTask()
 {
     document.getElementById('app').innerHTML = `
         
-        <button onclick="gotoToDoListPage()">Go to your list</button>
-        <hr/>
+    <button onclick="gotoToDoListPage()">Go back to your list</button>
+    <hr/>
 
-        <h1>This is the add task page</h1>
+    <h2>Please enter the following information</h2>
 
-        <div><input type="text" oninput = "model.personInput = this.value" />Name</div>
-        <div><input type="text" oninput = "model.taskInput = this.value" />Task</div>
-        <div><input id="datoInput" type="date" onchange = "model.dateInput = this.valueAsDate.toLocaleDateString().substr(0,10)"></div> 
-        <div><button onclick="addTask()">Legg til oppgave</button></div>
-
+    <div id="addTaskDiv">
+        <div> Who is the lucky person? </div>
+        <input type="text" oninput = "model.personInput = this.value" />
+        <div> What is the task? </div> 
+        <input type="text" oninput = "model.taskInput = this.value" /> 
+        <div> When does it need to be done? </div>
+        <input id="datoInput" type="date" onchange = "model.dateInput = this.valueAsDate.toLocaleDateString().substr(0,10)">
+        <button onclick="addTask()">Register new task!</button>
+    </div>
     `;
 }

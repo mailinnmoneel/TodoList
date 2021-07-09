@@ -8,16 +8,16 @@ function updateViewTodolist(i)
         let html = `
 
         <button onclick="gotoAddTaskPage()">Go to Add Task Page</button>
-
-        <tr>
-            <th>Person</th>    
-            <th>Oppgave</th>
+        <table>
+            <tr>
+            <th>Name</th>    
+            <th>Task</th>
             <th></th>
             <th></th>
-            <th>Frist</th>
-            <th>Gjort dato</th>
-        </tr>       
-        
+            <th>Duedate</th>
+            <th>Date done</th>
+            </tr>       
+        </table>        
      
         `
     ;
@@ -36,29 +36,33 @@ function createHtmlRow(i)
     const dateOutput = task.isDone ? new Date().toLocaleDateString() : '';
         if (!task.editMode)
             return `
-            <tr>
+        <table>    
+                <tr>
                 <td>${task.person}</td>
                 <td>${task.description}</td>
                 <td><input onchange="changeIsDone(this, ${i})" type="checkbox" ${checkedHtml} /></td>
                 <td>
-                <button onclick="deleteTask(${i})">Slett</button>
-                <button onclick="editTask(${i})">Endre</button>
+                <button onclick="deleteTask(${i})">Delete</button>
+                <button onclick="editTask(${i})">Change</button>
                 <td><tt><div id="dueDate${i}"></div>${task.date}</tt></td>
                 <td><tt> <div id=datoOutput"</div>${dateOutput}</tt></td>
                 </td>
-            </tr>
-
+                 </tr>
+        </table>
 
      `;
-            return `<tr>
+            return `
+        <table>    
+                <tr>
                 <td><input id="editPerson${i}" type="text" value="${task.person}"/></td>
                 <td><input id="editDescription${i}" type="text" value="${task.description}"/></td>
                 <td><input onchange="changeIsDone(this, ${i})" type="checkbox"${checkedHtml}/></td>
                 <td>
-                <button onclick="updateTask(${i})">Lagre</button>               
+                <button onclick="updateTask(${i})">Save</button>               
                 </td>
                 <td><tt><input id="editDate${i}" type="date"/></tt></td>
                 <td><tt></tt>${dateOutput}</td>
                 </tr>  
+        </table>        
     `;
 }
