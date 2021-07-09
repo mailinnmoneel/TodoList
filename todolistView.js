@@ -43,7 +43,7 @@ function createHtmlRow(i)
                 <td>
                 <button onclick="deleteTask(${i})">Slett</button>
                 <button onclick="editTask(${i})">Endre</button>
-                <td><tt><div id="dueDate${i}"></div>${task.d}</tt></td>
+                <td><tt><div id="dueDate${i}"></div>${task.date}</tt></td>
                 <td><tt> <div id=datoOutput"</div>${dateOutput}</tt></td>
                 </td>
             </tr>

@@ -1,16 +1,16 @@
     // Model
     const model = {
-     tasks : [
-        { person: 'Alexandra', description: 'Kjøpe hageplanter', d: new Date().toLocaleDateString(), isDone: true },
+    tasks : [
+        { person: 'Alexandra', description: 'Kjøpe hageplanter', date: new Date().toLocaleDateString(), isDone: true },
     ],
-    dateInput: new Date().toLocaleDateString(),
+    dateInput: null,
     dateOutput: null,
-        app: { currentpage: 'todolist',
-        },
-
+    app: { currentpage: 'todolist',
+    },
+    personInput: null,
+    taskInput: null,
 }
 
-   // console.table(tasks);
   
   
 

@@ -6,22 +6,6 @@ function gotoAddTaskPage()
     updateView();
 }
 
-let taskDescriptionInput = document.getElementById('taskDescription')
-let personDescriptionInput = document.getElementById('personDescription');
-
-function addTask() {
-    model.tasks.push({
-        person: personDescriptionInput.value,
-        description: taskDescriptionInput.value,
-        d: model.dateInput,
-
-        isDone: false
-    });
-    taskDescriptionInput.value = '';
-    personDescriptionInput.value = '';
-    updateView();
-}
-
 function updateTask(index) 
 {
     let idPers = `editPerson${index}`;
@@ -43,6 +27,11 @@ function updateTask(index)
     updateView();
 }
 
+function editTask(index) 
+{
+    model.tasks[index].editMode = true;
+    updateView();
+}
 
 function changeIsDone(checkbox, index) 
 {  
@@ -54,11 +43,5 @@ function changeIsDone(checkbox, index)
 function deleteTask(index) 
 {
     model.tasks.splice(index, 1);
-    updateView();
-}
-
-function editTask(index) 
-{
-    model.tasks[index].editMode = true;
     updateView();
 }
