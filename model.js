@@ -9,6 +9,7 @@
     },
     personInput: null,
     taskInput: null,
+    message: {nameField: 'Enter Name', taskField: 'Enter Task', dateField: ' ', registeredField: '',}
 }
 
   

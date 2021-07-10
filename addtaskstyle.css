@@ -35,3 +35,10 @@ input[type=text]:focus {
 .registerbtn:hover {
     opacity:1;
 }
+
+#registered {
+    font-size: 25px;
+    font-weight: bolder;
+    color: #C21460;
+    text-align: center;
+}

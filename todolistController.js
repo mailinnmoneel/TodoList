@@ -8,9 +8,9 @@ function gotoAddTaskPage()
 
 function updateTask(index) 
 {   
-    if (emptypersonInput() == true) { alert("Please add a name!"); return; }
-    if (emptytaskInput() == true) { alert("Please add a task!"); return; }
-    if (emptydateInput() == true) { alert("Please add a duedate!"); return; }
+    if (emptypersonInput() == true) { model.message.nameField = "Enter a name!" ; updateView(); }
+    if (emptytaskInput() == true) { model.message.taskField = "Enter a task description!"; updateView(); }
+    if (emptydateInput() == true) { model.message.dateField = "Enter a duedate!"; updateView(); return; }
     const task = model.tasks[index];
    
     task.description = model.taskInput;

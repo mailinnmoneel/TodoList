@@ -61,9 +61,11 @@ function createHtmlRow(i)
         <table>    
             <tr>
                 <td><input id="editPerson${i}" type="text" 
+                    placeholder = "${model.message.nameField}"
                     oninput = "model.personInput = this.value"/>
                 </td>
-                <td><input id="editDescription${i}" type="text" 
+                <td><input id="editDescription${i}" type="text"
+                    placeholder="${model.message.taskField}" 
                     oninput = "model.taskInput = this.value"/>
                 </td>
                 <td></td>
@@ -72,9 +74,9 @@ function createHtmlRow(i)
                 </td>
                 <td><tt><input id="editDate${i}" 
                     type="date" onchange = "model.dateInput = this.valueAsDate.toLocaleDateString().substr(0,10)">
-                    </tt></td>
+                    </tt>${model.message.dateField}</td>
                 <td><tt></tt>${dateOutput}</td>
             </tr>  
-        </table>        
+        </table>   
     `;
 }

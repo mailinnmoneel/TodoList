@@ -6,9 +6,9 @@ function gotoToDoListPage()
 
 function addTask() {
     
-    if (emptypersonInput() == true) { alert("Please add a name!"); return; }
-    if (emptytaskInput() == true) { alert("Please add a task!"); return; }
-    if (emptydateInput() == true) { alert("Please add a duedate!"); return; }
+    if (emptypersonInput() == true) { model.message.nameField = "Please enter a name to register new task!" ; updateView(); }
+    if (emptytaskInput() == true) { model.message.taskField = "Please enter a task description!"; updateView(); }
+    if (emptydateInput() == true) { model.message.dateField = "Please enter a duedate!"; updateView(); return; }
     
     model.tasks.push({
         person: model.personInput,
@@ -17,7 +17,7 @@ function addTask() {
 
         isDone: false
     });
-    alert('New task was added to your list!');
+    model.message.registeredField = "New task was succesfully added!";
     updateView();
     addTaskReset();
 }
@@ -38,8 +38,21 @@ function emptydateInput()
 }
 
 function addTaskReset() 
-{
-    model.personInput = null;
-    model.taskInput = null;
-    model.dateInput = null;
+{   
+    setTimeout(function() {
+        model.personInput = null;
+        model.taskInput = null;
+        model.dateInput = null;
+
+        model.message.nameField = "Enter Name";
+        model.message.taskField = "Enter Task";
+        model.message.dateField = " ";
+
+        model.message.registeredField = " ";
+    
+        updateView();
+
+    }, 3000);
+
+    
 }
