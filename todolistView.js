@@ -9,18 +9,17 @@ function updateViewTodolist(i)
         <div class="navbar">
             <a href="#Todo" onclick="gotoToDoListPage()"> Todo list </a>
             <a href="#AddNewTask" onclick="gotoAddTaskPage()"> Add new task </a>
-            <a href="#ShoppingList" onclick="gotoShoppingPage()"> Shopping list </a>
         </div>
 
         
         <table class="main">
             <tr>
-            <th>Name</th>    
-            <th>Task</th>
-            <th></th>
-            <th></th>
-            <th>Duedate</th>
-            <th>Date done</th>
+                <th>Name</th>    
+                <th>Task</th>
+                <th></th>
+                <th></th>
+                <th>Duedate</th>
+                <th>Date done</th>
             </tr>       
         </table>        
      
@@ -42,32 +41,40 @@ function createHtmlRow(i)
         if (!task.editMode)
             return `
         <table>    
-                <tr>
+            <tr>
                 <td>${task.person}</td>
                 <td>${task.description}</td>
                 <td><input onchange="changeIsDone(this, ${i})" type="checkbox" ${checkedHtml} /></td>
+                
                 <td>
-                <button onclick="deleteTask(${i})">Delete</button>
-                <button onclick="editTask(${i})">Edit</button>
-                <td><tt><div id="dueDate${i}"></div>${task.date}</tt></td>
-                <td><tt> <div id=datoOutput"</div>${dateOutput}</tt></td>
+                    <button id="editId" onclick="editTask(${i})">Edit</button> 
+                    <button id="deleteId" onclick="deleteTask(${i})">Delete</button>
                 </td>
-                 </tr>
+
+                <td><div id="dueDate${i}"></div>${task.date}</td>
+                <td><div id=datoOutput"</div>${dateOutput}</td>
+            </tr>
         </table>
 
      `;
             return `
         <table>    
-                <tr>
-                <td><input id="editPerson${i}" type="text" value="${task.person}"/></td>
-                <td><input id="editDescription${i}" type="text" value="${task.description}"/></td>
-                <td><input onchange="changeIsDone(this, ${i})" type="checkbox"${checkedHtml}/></td>
-                <td>
-                <button onclick="updateTask(${i})">Save</button>               
+            <tr>
+                <td><input id="editPerson${i}" type="text" 
+                    oninput = "model.personInput = this.value"/>
                 </td>
-                <td><tt><input id="editDate${i}" type="date"/></tt></td>
+                <td><input id="editDescription${i}" type="text" 
+                    oninput = "model.taskInput = this.value"/>
+                </td>
+                <td></td>
+                <td>
+                <button id="saveId" onclick="updateTask(${i})">Save</button>               
+                </td>
+                <td><tt><input id="editDate${i}" 
+                    type="date" onchange = "model.dateInput = this.valueAsDate.toLocaleDateString().substr(0,10)">
+                    </tt></td>
                 <td><tt></tt>${dateOutput}</td>
-                </tr>  
+            </tr>  
         </table>        
     `;
 }

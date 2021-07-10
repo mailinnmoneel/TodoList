@@ -5,7 +5,6 @@ function updateViewaddTask()
     <div class="navbar">
     <a href="#Todo" onclick="gotoToDoListPage()"> Todo list </a>
     <a href="#AddNewTask" onclick="gotoAddTaskPage()"> Add new task </a>
-    <a href="#ShoppingList" onclick="gotoShoppingPage()"> Shopping list </a>
 </div>
 
 <form>    

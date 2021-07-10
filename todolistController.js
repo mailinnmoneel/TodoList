@@ -7,20 +7,15 @@ function gotoAddTaskPage()
 }
 
 function updateTask(index) 
-{
-    let idPers = `editPerson${index}`;
-    let idDesc = `editDescription${index}`;
-    let idDato = `editDate${index}`;
-
-    let datoInput = document.getElementById(idDato);
-    let inputTag = document.getElementById(idPers);
-    let inputTag2 = document.getElementById(idDesc);
-
+{   
+    if (emptypersonInput() == true) { alert("Please add a name!"); return; }
+    if (emptytaskInput() == true) { alert("Please add a task!"); return; }
+    if (emptydateInput() == true) { alert("Please add a duedate!"); return; }
     const task = model.tasks[index];
-
-    task.person = inputTag.value; 
-    task.description = inputTag2.value;
-    task.d = datoInput.value;
+   
+    task.description = model.taskInput;
+    task.person = model.personInput; 
+    task.date = model.dateInput;
     
     task.editMode = false;
 
