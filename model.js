@@ -1,7 +1,7 @@
     // Model
     const model = {
     tasks : [
-        { person: 'Alexandra', description: 'Kjøpe hageplanter', date: new Date().toLocaleDateString(), isDone: true },
+        { person: 'Alexa', description: 'Order plants', date: new Date().toLocaleDateString(), isDone: true },
     ],
     dateInput: null,
     dateOutput: null,

@@ -6,9 +6,14 @@ updateViewTodolist();
 function updateViewTodolist(i) 
 {       
         let html = `
+        <div class="navbar">
+            <a href="#Todo" onclick="gotoToDoListPage()"> Todo list </a>
+            <a href="#AddNewTask" onclick="gotoAddTaskPage()"> Add new task </a>
+            <a href="#ShoppingList" onclick="gotoShoppingPage()"> Shopping list </a>
+        </div>
 
-        <button onclick="gotoAddTaskPage()">Go to Add Task Page</button>
-        <table>
+        
+        <table class="main">
             <tr>
             <th>Name</th>    
             <th>Task</th>
@@ -43,7 +48,7 @@ function createHtmlRow(i)
                 <td><input onchange="changeIsDone(this, ${i})" type="checkbox" ${checkedHtml} /></td>
                 <td>
                 <button onclick="deleteTask(${i})">Delete</button>
-                <button onclick="editTask(${i})">Change</button>
+                <button onclick="editTask(${i})">Edit</button>
                 <td><tt><div id="dueDate${i}"></div>${task.date}</tt></td>
                 <td><tt> <div id=datoOutput"</div>${dateOutput}</tt></td>
                 </td>

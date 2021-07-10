@@ -2,19 +2,31 @@ function updateViewaddTask()
 {
     document.getElementById('app').innerHTML = `
         
-    <button onclick="gotoToDoListPage()">Go back to your list</button>
-    <hr/>
+    <div class="navbar">
+    <a href="#Todo" onclick="gotoToDoListPage()"> Todo list </a>
+    <a href="#AddNewTask" onclick="gotoAddTaskPage()"> Add new task </a>
+    <a href="#ShoppingList" onclick="gotoShoppingPage()"> Shopping list </a>
+</div>
 
-    <h2>Please enter the following information</h2>
+<form>    
+    <div class="container">
+        <h1>Register</h1>
+        </hr>
 
-    <div id="addTaskDiv">
-        <div> Who is the lucky person? </div>
-        <input type="text" oninput = "model.personInput = this.value" />
-        <div> What is the task? </div> 
-        <input type="text" oninput = "model.taskInput = this.value" /> 
-        <div> When does it need to be done? </div>
-        <input id="datoInput" type="date" onchange = "model.dateInput = this.valueAsDate.toLocaleDateString().substr(0,10)">
-        <button onclick="addTask()">Register new task!</button>
+        <label for="personName"><b>Who is the lucky person?</b></label>
+            <input type="text" placeholder="Enter Name" name="persoNname" id="personName" 
+            oninput = "model.personInput = this.value"/>
+
+        <label for="Task"><b>What is the task?</b></label>
+            <input type="text" placeholder="Enter Task" name="task" id="task" 
+            oninput = "model.taskInput = this.value"/> 
+        
+        <label for="dueDate"><b>When does it need to be done?</b></label>
+        <input id="datoInput" type="date" onchange = "model.dateInput = this.valueAsDate.toLocaleDateString().substr(0,10)"></li>
+        
+        <button type="submit" class="registerbtn" onclick="addTask()">Register new task!</button>
     </div>
+</form>    
+
     `;
 }
