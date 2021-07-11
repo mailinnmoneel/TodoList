@@ -17,7 +17,7 @@ function addTask() {
 
         isDone: false
     });
-    model.message.registeredField = "New task was succesfully added!";
+    model.message.registeredField = "New task added!";
     updateView();
     addTaskReset();
 }

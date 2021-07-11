@@ -17,7 +17,7 @@ input[type=text] {
 }
   
 input[type=text]:focus {
-    background-color: #ddd;
+    background-color: rgb(240, 173, 234);
     outline: none;
 }
 
