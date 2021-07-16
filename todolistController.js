@@ -8,8 +8,8 @@ function gotoAddTaskPage()
 
 function updateTask(index) 
 {   
-    if (emptypersonInput() == true) { model.message.nameField = "Enter a name!" ; updateView(); }
-    if (emptytaskInput() == true) { model.message.taskField = "Enter a task!"; updateView(); }
+    if (emptypersonInput() == true) { model.message.nameField = "Enter a name!" ; updateView(); return; }
+    if (emptytaskInput() == true) { model.message.taskField = "Enter a task!"; updateView(); return; }
     if (emptydateInput() == true) { model.message.dateField = "Enter date!"; updateView(); return; }
     const task = model.tasks[index];
    

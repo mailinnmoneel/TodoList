@@ -6,8 +6,8 @@ function gotoToDoListPage()
 
 function addTask() {
     
-    if (emptypersonInput() == true) { model.message.nameField = "Please enter a name to register new task!" ; updateView(); }
-    if (emptytaskInput() == true) { model.message.taskField = "Please enter a task description!"; updateView(); }
+    if (emptypersonInput() == true) { model.message.nameField = "Please enter a name to register new task!" ; updateView(); return; }
+    if (emptytaskInput() == true) { model.message.taskField = "Please enter a task description!"; updateView(); return; }
     if (emptydateInput() == true) { model.message.dateField = "Please enter a duedate!"; updateView(); return; }
     
     model.tasks.push({
